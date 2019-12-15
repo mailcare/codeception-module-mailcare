@@ -1,37 +1,45 @@
-## Welcome to GitHub Pages
+# codeception-module-mailcare
 
-You can use the [editor on GitHub](https://github.com/mailcare/codeception-module-mailcare/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+MailCare module for Codeception 
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+## Installation
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+```
+composer require "mailcare/codeception-module-mailcare"
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Documentation
 
-### Jekyll Themes
+Module for testing receiving emails using [MailCare](https://mailcare.io).
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/mailcare/codeception-module-mailcare/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Configuration
 
-### Support or Contact
+* url *required* - API url of your mailcare server
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+#### Example
+```
+modules:
+    enabled
+        - MailCare:
+            url: 'https://mailix.xyz/api'
+```
+
+### Actions
+
+#### seeEmail
+
+Checks that the given email exists.
+Waits up to $timeout seconds for the given email to be received.
+
+```php
+$I->seeEmail([
+    'inbox' => 'john@example.org',
+    'sender' => 'no-reply@company.com',
+    'subject' => 'Welcome John!',
+    'since' => 'P2M',
+], 30);
+```
+
+ * `param array`    $criterias
+ * 'param int`      $timeout (seconds)
+ 
