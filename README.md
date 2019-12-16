@@ -24,6 +24,22 @@ modules:
             url: 'https://mailix.xyz/api'
 ```
 
+### Timeout
+
+Waits up to $timeout seconds for an email to be received (30 seconds by default).
+
+### Criterias
+
+ * `inbox`      Filter by inbox (test@example.com).
+ * `sender`     Filter by sender (test@example.com).
+ * `subject`    Filter by subject (Welcome).
+ * `since`      Filter by createdAt (2018-01-19T12:23:27+00:00).
+ * `search`     Search by inbox or sender or subject (matching).
+ * `unread`     Filter only by unread (true).
+ * `favorite`   Filter only by favorite (true).
+
+All criterias can be found in the [API Documentation of MailCare](https://mailcare.docs.apiary.io) except for page and limit.
+
 ### Actions
 
 #### seeEmail
@@ -41,5 +57,20 @@ $I->seeEmail([
 ```
 
  * `param array`    $criterias
- * 'param int`      $timeout (seconds)
+ * `param int`      $timeoutInSecond (optional)
  
+#### dontSeeEmail
+
+Opposite to seeEmail.
+
+```php
+$I->dontSeeEmail([
+    'inbox' => 'john@example.org',
+    'sender' => 'no-reply@company.com',
+    'subject' => 'Welcome John!',
+    'since' => 'P2M',
+], 30);
+```
+
+ * `param array`    $criterias
+ * `param int`      $timeoutInSecond (optional)
