@@ -15,6 +15,8 @@ Module for testing receiving emails using [MailCare](https://mailcare.io).
 ### Configuration
 
 * url *optional* - API url of your mailcare server (default: https://mailix.xyz/api)
+* login *optional* - login of your mailcare server
+* password *optional* - password of your mailcare server
 * timeoutInSeconds *optional* - Waits up to n seconds for an email to be received (default: 30 seconds)
 
 #### Example
@@ -23,6 +25,8 @@ modules:
     enabled
         - MailCare:
             url: 'https://mailix.xyz/api'
+            login: 'https://mailix.xyz/api'
+            password: 'https://mailix.xyz/api'
 ```
 
 ### Criterias

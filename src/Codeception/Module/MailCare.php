@@ -10,12 +10,16 @@ class MailCare extends Module
 {
     public $client;
     protected $url = 'https://mailix.xyz/api';
+    protected $userpwd;
     protected $timeoutInSeconds = 30;
     
     public function _initialize()
     {
         if (!empty($this->config['url'])) {
             $this->url = $this->config['url'];
+        }
+        if (!empty($this->config['login']) && !empty($this->config['password'])) {
+            $this->userpwd = $this->config['login'] . ':' . $this->config['password'];
         }
         if (!empty($this->config['timeoutInSeconds'])) {
             $this->setTimeoutInSeconds($this->config['timeoutInSeconds']);
@@ -66,7 +70,8 @@ class MailCare extends Module
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_URL => $curlUrl,
             CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_USERAGENT => 'codeception-module-mailcare'
+            CURLOPT_USERAGENT => 'codeception-module-mailcare',
+            CURLOPT_USERPWD => $this->userpwd
         ]);
         
 
@@ -97,6 +102,7 @@ class MailCare extends Module
             CURLOPT_CUSTOMREQUEST => 'GET',
             CURLOPT_USERAGENT => 'codeception-module-mailcare',
             CURLOPT_HTTPHEADER => ['Accept: text/html,text/plain,message/rfc2822'],
+            CURLOPT_USERPWD => $this->userpwd
         ]);
         
 
