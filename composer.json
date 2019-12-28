@@ -12,8 +12,7 @@
         }
     ],
     "require": {
-        "php": ">=7.3",
-        "codeception/codeception": "^4.0"
+        "php": ">=7.1"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16"
@@ -22,5 +21,10 @@
         "psr-4": {
             "Codeception\\Module\\": "src/Codeception/Module/"
         }
+    },
+    "scripts": {
+        "test": [
+            "vendor/bin/phpunit"
+        ]
     }
 }
