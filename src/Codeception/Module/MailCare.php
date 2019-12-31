@@ -16,7 +16,7 @@ class MailCare extends Module
     public function _initialize()
     {
         if (!empty($this->config['url'])) {
-            $this->url = $this->config['url'];
+            $this->setUrl($this->config['url']);
         }
         if (!empty($this->config['login']) && !empty($this->config['password'])) {
             $this->userpwd = $this->config['login'] . ':' . $this->config['password'];
@@ -24,6 +24,11 @@ class MailCare extends Module
         if (!empty($this->config['timeoutInSeconds'])) {
             $this->setTimeoutInSeconds($this->config['timeoutInSeconds']);
         }
+    }
+
+    public function setUrl(string $url)
+    {
+        $this->url = $url;
     }
 
     private function setTimeoutInSeconds(int $timeoutInSeconds): void
@@ -162,21 +167,7 @@ class MailCare extends Module
     private function getEmailBody(string $id): string
     {
         $end = microtime(true) + $this->getTimeoutInSeconds();
-
-        $body = '';
-        do {
-            $body = $this->getBody('/emails/'.$id);
-
-            if (!empty($body)) {
-                var_dump($body);
-                $body = $body;
-                break;
-            }
-
-            usleep(250000);
-        } while ($end > microtime(true));
-
-        return $body;
+        return $this->getBody('/emails/'.$id);
     }
 
     public function seeEmailCount(int $expectedCount, array $criterias, int $timeoutInSeconds = -1): void
@@ -207,9 +198,15 @@ class MailCare extends Module
 
         $body = $this->getEmailBody($lastId);
 
-        preg_match_all('#\bhttp?://[^,\s()<>]+(?:\([\w\d]+\)|([^,[:punct:]\s]|/))#', $body, $out);
 
-        return $out[0];
+        $dom = new \DOMDocument;
+        @$dom->loadHTML($body);
+        $domLinks = $dom->getElementsByTagName('a');
+        foreach ($domLinks as $link) {
+            $links[] = $link->getAttribute('href');
+        }
+
+        return $links;
     }
 
     public function grabTextInLastEmail(string $regex, array $criterias, int $timeoutInSeconds = -1): array

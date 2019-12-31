@@ -12,10 +12,12 @@
         }
     ],
     "require": {
-        "php": "^7.2"
+        "php": "^7.2",
+        "codeception/codeception": "^4.0"
     },
     "require-dev": {
         "friendsofphp/php-cs-fixer": "^2.16",
+        "codeception/util-universalframework": "^1.0",
         "phpunit/phpunit": "^8.0"
     },
     "autoload": {
@@ -24,6 +26,12 @@
         }
     },
     "scripts": {
+        "format": [
+            "./vendor/bin/php-cs-fixer fix ."
+        ],
+        "test-server": [
+            "nohup php -S localhost:8000 -t tests/test-server &> /dev/null &"
+        ],
         "test": [
             "vendor/bin/phpunit tests"
         ]

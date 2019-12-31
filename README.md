@@ -88,7 +88,7 @@ Opposite to seeEmail.
 
 ```php
 $I->dontSeeEmail([
-    'inbox' => 'john@example.org'
+    'inbox' => 'john@example.org',
     'since' => 'PT2M',
 ], 30);
 ```
@@ -103,7 +103,7 @@ Waits up to $timeout seconds for the given email to be received.
 
 ```php
 $I->grabLinksInLastEmail([
-    'inbox' => 'john@example.org'
+    'inbox' => 'john@example.org',
     'since' => 'PT2M',
 ], 30);
 ```
@@ -119,13 +119,14 @@ In the last email, grabs all the text corresponding to a regex.
 Waits up to $timeout seconds for the given email to be received.
 
 ```php
-$I->grabTextInLastEmail($regex, [
-    'inbox' => 'john@example.org'
-    'subject' => 'Your credentials'
+$I->grabTextInLastEmail('#Password: (?<password>\S+)#', [
+    'inbox' => 'john@example.org',
+    'subject' => 'Your credentials',
     'since' => 'PT2M',
 ], 30);
 ```
 
+ * `param string`   $regex
  * `param array`    $criterias
  * `param int`      $timeoutInSeconds (optional)
  * `return array`   matches from preg_match_all

@@ -1,0 +1,18 @@
+{
+    "data": [],
+    "links": {
+      "first": "https://example.org/api/emails?page=1",
+      "last": "https://example.org/api/emails?page=1",
+      "prev": null,
+      "next": null
+    },
+    "meta": {
+      "current_page": 1,
+      "from": null,
+      "last_page": 1,
+      "path": "https://example.org/api/emails",
+      "per_page": 25,
+      "to": null,
+      "total": 0
+    }
+}

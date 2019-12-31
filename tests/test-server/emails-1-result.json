@@ -1,0 +1,56 @@
+{
+    "data": [
+      {
+        "id": "9bf63f3b-4e4e-46a0-8c7d-html",
+        "sender": {
+          "id": "9bf63f3b-4e4e-46a0-8c7d-2d6d32576a1d",
+          "display_name": "Louis",
+          "email": "louis@example.com",
+          "created_at": "2018-01-19T12:23:27+00:00",
+          "updated_at": "2018-01-19T12:23:27+00:00"
+        },
+        "inbox": {
+          "id": "9bf63f3b-4e4e-46a0-8c7d-2d6d32576a1d",
+          "display_name": "Claire",
+          "email": "claire@example.com",
+          "created_at": "2018-01-19T12:23:27+00:00",
+          "updated_at": "2018-01-19T12:23:27+00:00"
+        },
+        "subject": "Welcome to mailcare.io",
+        "created_at": "2018-01-19T12:23:27+00:00",
+        "read": "2018-01-19T12:23:27+00:00",
+        "favorite": false,
+        "has_html": true,
+        "has_text": true,
+        "size_in_bytes": 40240,
+        "attachments": [
+          {
+            "id": "238515b6-9a2f-4797-aed6-e7d36a7df430",
+            "email_id": "7dfc9fea-c496-4623-8784-de53706dad7f",
+            "headers_hashed": "b84bcb9dfc8d0a17a089073c0355ad58",
+            "file_name": "signature.jpg",
+            "content_type": "image/jpg",
+            "size_in_bytes": 33996,
+            "created_at": "2018-01-19 12:23:27",
+            "updated_at": "2018-01-19 12:23:27",
+            "size_for_human": "34.00kB"
+          }
+        ]
+      }
+    ],
+    "links": {
+      "first": "https://example.org/api/emails?page=1",
+      "last": "https://example.org/api/emails?page=1",
+      "prev": null,
+      "next": null
+    },
+    "meta": {
+      "current_page": 1,
+      "from": 1,
+      "last_page": 1,
+      "path": "https://example.org/api/emails",
+      "per_page": 25,
+      "to": 1,
+      "total": 1
+    }
+}
