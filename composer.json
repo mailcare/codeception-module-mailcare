@@ -30,7 +30,7 @@
             "./vendor/bin/php-cs-fixer fix ."
         ],
         "test-server": [
-            "nohup php -S 127.0.0.1:8000 -t tests/test-server &> /dev/null &"
+            "nohup bash -c 'php -S localhost:8000 -t tests/test-server > /dev/null 2>&1 &'"
         ],
         "test": [
             "vendor/bin/phpunit tests"

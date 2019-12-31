@@ -29,5 +29,5 @@ jobs:
 
     - name: Run test suite
       run: |
-        nohup bash -c 'php -S localhost:8000 -t tests/test-server > /dev/null 2>&1 &'
+        composer test-server
         composer test
