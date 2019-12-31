@@ -1,0 +1,39 @@
+{
+    "name": "mailcare/codeception-module-mailcare",
+    "description": "MailCare module for Codeception",
+    "keywords":["codeception", "codeception-module", "mailcare", "testing", "mail"],
+    "homepage":"https://codeception.mailcare.io/",
+    "type": "library",
+    "license": "MIT",
+    "minimum-stability": "stable",
+    "authors": [
+        {
+            "name": "Vincent Dauce"
+        }
+    ],
+    "require": {
+        "php": "^7.2",
+        "codeception/codeception": "^4.0"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.16",
+        "codeception/util-universalframework": "^1.0",
+        "phpunit/phpunit": "^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Codeception\\Module\\": "src/Codeception/Module/"
+        }
+    },
+    "scripts": {
+        "format": [
+            "./vendor/bin/php-cs-fixer fix ."
+        ],
+        "test-server": [
+            "nohup bash -c 'php -S localhost:8000 -t tests/test-server > /dev/null 2>&1 &'"
+        ],
+        "test": [
+            "vendor/bin/phpunit tests"
+        ]
+    }
+}

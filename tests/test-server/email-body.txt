@@ -1,0 +1,12 @@
+Hello,
+
+Welcome to MailCare!
+
+Your credentials to sign in on the website are as follows:
+
+Email address: jane@example.org
+Password: 24iBfvmMEB7isr
+Once you've logged in with this password, you can visit your settings and update your password to one of your choice.
+
+See you soon!
+The MailCare team
