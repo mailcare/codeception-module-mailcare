@@ -9,7 +9,7 @@ use Exception;
 class MailCare extends Module
 {
     public $client;
-    protected $url = 'https://mailix.xyz/api';
+    protected string $url = 'https://mailix.xyz/api';
     protected $userpwd;
     protected $timeoutInSeconds = 30;
     
