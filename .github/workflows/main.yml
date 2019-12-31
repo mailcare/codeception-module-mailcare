@@ -27,8 +27,7 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress --no-suggest
 
-    - name: Run test server
-      run: php -S localhost:8000 -t tests/test-server
-
     - name: Run test suite
-      run: composer test
+      run: |
+        composer test-server
+        composer test
