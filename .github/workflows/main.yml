@@ -11,10 +11,14 @@ jobs:
         php: [7.2, 7.3, 7.4]
     
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout code
+      uses: actions/checkout@v1
 
-    - name: Change PHP version
-      run: sudo update-alternatives --set php /usr/bin/php${{ matrix.php }} && php -v
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v1
+        with:
+          php-version: ${{ matrix.php }}
+          coverage: none
 
     - name: Validate composer.json and composer.lock
       run: composer validate
